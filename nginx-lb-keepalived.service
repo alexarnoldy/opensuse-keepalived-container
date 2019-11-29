@@ -1,0 +1,9 @@
+[Unit]
+Description=Nginx Podman container
+Wants=syslog.service
+[Service]
+Restart=always
+ExecStart=/usr/bin/podman start -a nginx-lb-keepalived
+ExecStop=/usr/bin/podman stop -t 10 nginx-lb-keepalived
+[Install]
+WantedBy=multi-user.target
