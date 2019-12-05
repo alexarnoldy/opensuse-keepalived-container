@@ -1,5 +1,10 @@
-* scp this directory to the target server
+* Clone this repo to the target server
 * Copy nginx-lb1-keepalived.conf or nginx-lb2-keepalived.conf to keepalived.conf 
+* Update the keepalived.conf file to suit your environment
+* NOTE: Any number of nodes can be used to managed the Virtual IP address
+** Only one node will have the state of "MASTER"
+** All others will have the state of "BACKUP"
+** All nodes will have different priorities, with the MASTER having the highest numerical priority
 * Build the container: sudo podman build -t opensuse-keepalived-nginx-lb:latest .
 * Run the container: sudo podman  run -it -d --restart=always --net=host --privileged --name nginx-lb-keepalived localhost/opensuse-keepalived-nginx-lb:latest
 * Copy the nginx-lb.service file into place: sudo cp -p nginx-lb-keepalived.service /etc/systemd/system/
