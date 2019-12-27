@@ -2,6 +2,7 @@
 * Copy nginx-lb1-keepalived.conf or nginx-lb2-keepalived.conf to keepalived.conf 
 
 NOTE: More than two keepalived instances can be configured. Each successive instance would have a state of "BACKUP" and a unique priority number
+
 * Build the container: `sudo podman build -t opensuse-keepalived-nginx-lb:latest .`
 * Run the container: `sudo podman  run -it -d --net=host --privileged --name nginx-lb-keepalived localhost/opensuse-keepalived-nginx-lb:latest`
 * Copy the nginx-lb.service file into place: `sudo cp -p nginx-lb-keepalived.service /etc/systemd/system/`
