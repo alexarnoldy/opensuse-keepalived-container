@@ -7,6 +7,11 @@ NOTE: More than two keepalived instances can be configured. Each successive inst
 
 * Build the container: `sudo podman build -t opensuse-keepalived-nginx-lb:latest .`
 * Run the container: `sudo podman  run -it -d --net=host --privileged --name nginx-lb-keepalived localhost/opensuse-keepalived-nginx-lb:latest`
+* Ensure the container is running: `sudo podman ps -a`
+** The "STATUS" field should show the amount of time the container has been running
+** If the STATUS is EXITED, run the command `sudo podman logs nginx-lb-keepalived` to see the error that stopped the container
+* (For the "MASTER" instance) Check that the virtual IP is running: `ip a`
+* Ensure the VRRP service is monitoring port 112 on all interfaces: `ss -npr --listening`
 * Copy the nginx-lb.service file into place: `sudo cp -p nginx-lb-keepalived.service /etc/systemd/system/`
 * Reload systemd: `sudo systemctl daemon-reload`
 * Start and enable the systemd nginx-lb-keepalived.service: `sudo systemctl --now enable nginx-lb-keepalived.service`
