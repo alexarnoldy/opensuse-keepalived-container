@@ -1,5 +1,7 @@
 * Clone this repo to the target server: `cd ~; git clone https://github.com/alexarnoldy/opensuse-keepalived-container.git && cd opensuse-keepalived-container`
 * Copy nginx-lb1-keepalived.conf or nginx-lb2-keepalived.conf to keepalived.conf 
+* Update the keepalived.conf file for this instance; specifically the state, interface, track_interface, priority, and virtual_ipaddress
+** Update the virtual_router_id if there seems to be a conflict on the network
 
 NOTE: More than two keepalived instances can be configured. Each successive instance would have a state of "BACKUP" and a unique priority number
 

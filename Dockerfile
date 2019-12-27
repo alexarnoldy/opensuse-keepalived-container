@@ -1,4 +1,4 @@
-FROM docker.io/opensuse/leap
+FROM registry.opensuse.org/opensuse/leap:15.1
 
 MAINTAINER "alex.arnoldy@suse.com"
 
