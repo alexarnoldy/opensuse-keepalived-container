@@ -1,9 +1,0 @@
-* scp this directory to the target server
-* Copy nginx-lb1-keepalived.conf or nginx-lb2-keepalived.conf to keepalived.conf 
-* Build the container: sudo podman build -t opensuse-keepalived-nginx-lb:latest .
-* Run the container: sudo podman  run -it -d --restart=always --net=host --privileged --name nginx-lb-keepalived localhost/opensuse-keepalived-nginx-lb:latest
-* Copy the nginx-lb.service file into place: sudo cp -p nginx-lb-keepalived.service /etc/systemd/system/
-* Reload systemd: sudo systemctl daemon-reload
-* Start and enable the systemd nginx-lb-keepalived.service: sudo systemctl --now enable nginx-lb-keepalived.service
-* Check the status of the nginx-lb-keepalived.service: systemctl status nginx-lb-keepalived.service
-
