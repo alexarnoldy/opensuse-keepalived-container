@@ -1,0 +1,9 @@
+[Unit]
+Description=Keepalived Podman container
+Wants=syslog.service
+[Service]
+Restart=always
+ExecStart=/usr/bin/podman start -a keepalived
+ExecStop=/usr/bin/podman stop -t 10 keepalived
+[Install]
+WantedBy=multi-user.target
