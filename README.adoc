@@ -8,10 +8,10 @@
 NOTE: More than two keepalived instances can be configured. Each successive instance would have a state of "BACKUP" and a unique priority number. Keep priority numbers close to reduce the chances of a newly rebooted system preempting the current holder of the VIP.
 
 * Build the container: `sudo podman build -t opensuse-keepalived:latest .`
-* Run the container: `sudo podman  run -it -d --net=host --privileged --name opensuse-keepalived localhost/opensuse-keepalived:latest`
+* Run the container: `sudo podman  run -it -d --net=host --privileged --name keepalived localhost/opensuse-keepalived:latest`
 * Ensure the container is running: `sudo podman ps -a`
 ** The "STATUS" field should show the amount of time the container has been running
-** If the STATUS is EXITED, run the command `sudo podman logs opensuse-keepalived` to see the error that stopped the container
+** If the STATUS is EXITED, run the command `sudo podman logs keepalived` to see the error that stopped the container
 * (For the "MASTER" instance) Check that the virtual IP is running: `ip a`
 * Ensure the VRRP service is monitoring port 112 on all interfaces: `sudo ss -npr --listening`
 * Copy the keepalived.service file into place: `sudo cp -p keepalived.service /etc/systemd/system/`

@@ -1,4 +1,4 @@
-FROM registry.opensuse.org/opensuse/leap:15.1
+FROM registry.opensuse.org/opensuse/leap:15.4
 
 MAINTAINER "alex.arnoldy@suse.com"
 
